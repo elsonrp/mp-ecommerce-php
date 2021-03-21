@@ -78,9 +78,6 @@ var_dump($_POST);
                                 <span class="as-search-results-value"></span>
                             </div>
                         </div>
-                        <div class="as-searchnav-placeholder" style="height: 77px;">
-                            <div class="row as-search-navbar" id="as-search-navbar" style="width: auto;">
-                                <div class="as-accessories-filter-tile column large-6 small-3">
 
                                         <h2 class="">
                                             Pagamento Aprovado
