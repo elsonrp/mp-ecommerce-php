@@ -7,6 +7,7 @@ require __DIR__ .  '/vendor/autoload.php';
 
 // Configura credenciais
 MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946d5ce5a-725736327');
+MercadoPago\SDK::setPublicKey('APP_USR-6096a634-0b35-452c-94c9-a18adb8ffb15');
 MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 // Cria um objeto de preferência
 $preference = new MercadoPago\Preference();
@@ -14,6 +15,7 @@ $preference = new MercadoPago\Preference();
 $payer=new MercadoPago\Payer();
 $payer->name="Lalo Landa";
 $payer->email="test_user_92801501@testuser.com";
+$payer->id=725762927;
 $payer->phone=array("area_code"=>"55","number"=>"98529-8743");
 $payer->address=array("street_name"=>"Insurgentes Sur","street_number"=>1602,"zip_code"=>"78134-190");
 
@@ -44,6 +46,7 @@ $preference->external_reference='elson.rpedro@gmail.com';
 $preference->notification_url="https://webhook.site/dfd70435-eb8c-4b87-969f-98911988232b";
 $preference->items = array($item);
 $preference->save();
+var_dump($preference);
 
 ?>
 
@@ -184,6 +187,7 @@ $preference->save();
                                             src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
                                             data-preference-id="<?php echo $preference->id; ?>">
                                     </script>
+                                    <a href="<?php echo $preference->init_point; ?>">Pay with Mercado Pago</a>
                                 </div>
                             </div>
                         </div>
