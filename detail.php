@@ -183,7 +183,6 @@ var_dump($preference);
                                             src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
                                             data-preference-id="<?php echo $preference->id; ?>">
                                     </script>
-                                    <a href="<?php echo $preference->init_point; ?>">Pay with Mercado Pago</a>
                                 </div>
                             </div>
                         </div>
