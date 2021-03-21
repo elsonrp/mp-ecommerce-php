@@ -43,8 +43,7 @@ $preference->back_urls=array("success"=>"https://" . $_SERVER['SERVER_NAME']."/a
 $preference->external_reference='elson.rpedro@gmail.com';
 $preference->notification_url="https://webhook.site/dfd70435-eb8c-4b87-969f-98911988232b";
 $preference->items = array($item);
-var_dump($preference);
-//$preference->save();
+$preference->save();
 
 ?>
 
