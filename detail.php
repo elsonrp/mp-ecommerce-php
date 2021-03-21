@@ -42,7 +42,6 @@ $preference->external_reference='elson.rpedro@gmail.com';
 $preference->notification_url="https://webhook.site/dfd70435-eb8c-4b87-969f-98911988232b";
 $preference->items = array($item);
 $preference->save();
-var_dump($preference);
 
 ?>
 
