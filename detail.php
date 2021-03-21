@@ -1,6 +1,32 @@
+<?php
+
+// SDK de Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+
+// Configura credenciais
+MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946
+d5ce5a-725736327');
+
+// Cria um objeto de preferência
+$preference = new MercadoPago\Preference();
+
+//// Cria um item na preferência
+//$item = new MercadoPago\Item();
+//$item->title = 'Meu produto';
+//$item->quantity = 1;
+//$item->unit_price = 75.56;
+//
+//
+//
+//$preference->items = array($item);
+//$preference->save();
+
+?>
+
+
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <meta name="viewport" content="width=1024">
     <title>Tienda e-commerce</title>
 
@@ -44,7 +70,7 @@
 <body class="as-theme-light-heroimage">
 
     <div class="stack">
-        
+
         <div class="as-search-wrapper" role="main">
             <div class="as-navtuck-wrapper">
                 <div class="as-l-fullwidth  as-navtuck" data-events="event52">
@@ -94,7 +120,7 @@
                                         <img src="./assets/wireless-headphones" class="ir ir item-image as-producttile-image  " style="max-width: 70%;max-height: 70%;"alt="" width="445" height="445">
                                     </div>
                                     <div class="images mini-gallery gal5 ">
-                                    
+
 
                                         <div class="as-isdesktop with-paddlenav with-paddlenav-onhover">
                                             <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
@@ -102,13 +128,13 @@
                                                     <div class=""></div>
                                                     <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $_POST['img'] ?>) 2x);">
                                                 </div>
-                                                
+
                                             </div>
 
-                                            
+
                                         </div>
 
-                                        
+
 
                                     </div>
 
@@ -130,7 +156,10 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                    <script
+                                            src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
+                                            data-preference-id="<?php echo $preference->id; ?>">
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -148,3 +177,5 @@
         </div>
 
 </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div id="ac-gn-viewport-emitter"> </div></body></html>
+
+
