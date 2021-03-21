@@ -1,49 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-// SDK de Mercado Pago
-require __DIR__ .  '/vendor/autoload.php';
 
-// Configura credenciais
-MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946d5ce5a-725736327');
-
-// Cria um objeto de preferência
-$preference = new MercadoPago\Preference();
-
-$payer=new MercadoPago\Payer();
-$payer->name="Lalo Landa";
-$payer->email="test_user_92801501@testuser.com";
-$payer->phone=array("area_code"=>"55","number"=>"98529-8743");
-$payer->address=array("street_name"=>"Insurgentes Sur","street_number"=>1602,"zip_code"=>"78134-190");
-
-$preference->auto_return="approved";
-
-
-$preference->payment_methods = array(
-    "excluded_payment_methods" => array(
-        array("id" => "amex")
-    ),
-    "installments" => 6
-);
-
-// Cria um item na preferência
-$item = new MercadoPago\Item();
-$item->id='1234';
-$item->title = $_POST['title'];
-$item->description = "Celular de Tienda e-commerce";
-$item->picture_url = "https://" . $_SERVER['SERVER_NAME'].'/'.$_POST['img'];
-$item->quantity = 1;
-$item->unit_price = $_POST['price'];
-
-$preference->back_urls=array("success"=>"https://" . $_SERVER['SERVER_NAME']."/aprovado.php",
-                             "pending"=>"https://" . $_SERVER['SERVER_NAME']."/pendente.php",
-                             "failure"=>"https://" . $_SERVER['SERVER_NAME']."/nao-concluido.php");
-
-$preference->external_reference='elson.rpedro@gmail.com';
-$preference->items = array($item);
-var_dump($preference);
-//$preference->save();
+var_dump($_POST);
 
 ?>
 
@@ -123,68 +80,17 @@ var_dump($preference);
                         </div>
                         <div class="as-searchnav-placeholder" style="height: 77px;">
                             <div class="row as-search-navbar" id="as-search-navbar" style="width: auto;">
-                                <div class="as-accessories-filter-tile column large-6 small-3">
+                                <div class="">
 
-                                    <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
-                                        <h2 class=" as-filter-button-text">
-                                            Smartphones
+                                        <h2 class="">
+                                            Seu pagamento está pendente.
                                         </h2>
-                                    </button>
+                                        <h3 style="margin: 30px;">Fique tranquilo, assim que a compra for concluída, enviaremos um e-mail avisando</h3>
+
 
 
                                 </div>
 
-                            </div>
-                        </div>
-                        <div class="as-accessories-results  as-search-desktop">
-                            <div class="width:60%">
-                                <div class="as-producttile-tilehero with-paddlenav " style="float:left;">
-                                    <div class="as-dummy-container as-dummy-img">
-
-                                        <img src="./assets/wireless-headphones" class="ir ir item-image as-producttile-image  " style="max-width: 70%;max-height: 70%;"alt="" width="445" height="445">
-                                    </div>
-                                    <div class="images mini-gallery gal5 ">
-
-
-                                        <div class="as-isdesktop with-paddlenav with-paddlenav-onhover">
-                                            <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
-                                                <div class="as-tilegallery-element as-image-selected">
-                                                    <div class=""></div>
-                                                    <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $_POST['img'] ?>) 2x);">
-                                                </div>
-
-                                            </div>
-
-
-                                        </div>
-
-
-
-                                    </div>
-
-                                </div>
-                                <div class="as-producttile-info" style="float:left;min-height: 168px;">
-                                    <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
-                                        <div class="as-producttile-title">
-                                            <h3 class="as-producttile-name">
-                                                <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
-                                                </p>
-
-                                            </h3>
-                                        </div>
-                                        <h3 >
-                                            <?php echo $_POST['price'] ?>
-                                        </h3>
-                                        <h3 >
-                                            <?php echo "$" . $_POST['unit'] ?>
-                                        </h3>
-                                    </div>
-                                    <script
-                                            src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
-                                            data-preference-id="<?php echo $preference->id; ?>">
-                                    </script>
-                                </div>
                             </div>
                         </div>
                     </div>
