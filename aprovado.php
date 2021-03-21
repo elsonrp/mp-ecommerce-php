@@ -84,11 +84,10 @@ var_dump($_POST);
 
                                         <h2 class="">
                                             Pagamento Aprovado
+                                            <br>payment_method_id: não recebi
+                                            <br/>external_reference: <?= $_REQUEST['external_reference']?>
+                                            <br/>collection_id: <?= $_REQUEST['collection_id']?>
                                         </h2>
-                                    <p style="margin-bottom:300px;">Pagamento aprovado.
-                                    <br/> Código: <?php $_REQUEST['collection_id']?></p>
-                                    <br/> Forma: <?php $_REQUEST['payment_method_id']?></p>
-                                    <br/> Referencia Externa: <?php $_REQUEST['external_reference']?></p>
 
 
                                 </div>
