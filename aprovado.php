@@ -85,10 +85,10 @@ var_dump($_POST);
                                         <h2 class="">
                                             Pagamento Aprovado
                                         </h2>
-                                    <p style="margin-bottom:300px;">Pagamento aprovado.</p>
-                                    <p> Código: <?php $_GET['collection_id']?></p>
-                                    <p> Forma: <?php $_GET['payment_method_id']?></p>
-                                    <p> Referencia Externa: <?php $_GET['external_reference']?></p>
+                                    <p style="margin-bottom:300px;">Pagamento aprovado.
+                                    <br/> Código: <?php $_REQUEST['collection_id']?></p>
+                                    <br/> Forma: <?php $_REQUEST['payment_method_id']?></p>
+                                    <br/> Referencia Externa: <?php $_REQUEST['external_reference']?></p>
 
 
                                 </div>
